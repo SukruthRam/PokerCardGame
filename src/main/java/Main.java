@@ -91,7 +91,7 @@ public class Main {
         {
             String[] values = playerRank.get(0).split(":");
             String mapValue = cardValues.get(values[1]);
-            playerHand.setRankString("Straight Flush"+", "+mapValue);
+            playerHand.setRankString("Four of a Kind"+", "+mapValue);
         }
         else if(playerRank.get(0).contains("full house with three:"))
         {

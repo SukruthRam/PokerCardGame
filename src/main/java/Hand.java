@@ -105,14 +105,14 @@ public class Hand {
             return ranking;
         }
         int fourOfKind = checkForFourOfAKind(playerHand);
-        if( fourOfKind != 0)
+        if( fourOfKind != -1)
         {
             ranking.add("four of a kind:"+fourOfKind);
             setRank(8+fourOfKind+104);
             return ranking;
         }
         int forFullHouse = checkForFullHouse(playerHand);
-        if(forFullHouse != 0)
+        if(forFullHouse != -1)
         {
             ranking.add("full house with three:"+forFullHouse);
             setRank(7+forFullHouse+91);
@@ -131,7 +131,7 @@ public class Hand {
             return ranking;
         }
         int threeOfAKind = checkForThreeOfAKind(playerHand);
-        if(threeOfAKind != 0)
+        if(threeOfAKind != -1)
         {
             ranking.add("three of kind:"+threeOfAKind);
             setRank(4+threeOfAKind+52);
@@ -145,7 +145,7 @@ public class Hand {
             return ranking;
         }
         int onePair = checkForOnePair(playerHand);
-        if(onePair!=0)
+        if(onePair!=-1)
         {
             ranking.add("one pairs:"+onePair);
             setRank(2+onePair+13);
@@ -198,7 +198,7 @@ public class Hand {
         {
             return addValues.get(0);
         }
-        return 0;
+        return -1;
 
     }
 
@@ -280,7 +280,7 @@ public class Hand {
 
         }
 
-        return 0;
+        return -1;
     }
 
 
@@ -291,7 +291,7 @@ public class Hand {
 
         for(int i = 0; i < cardValues.size(); i++){
             if(cardValues.get(i) == 3){
-                if(checkForFullHouse(playerHand) == 0)
+                if(checkForFullHouse(playerHand) == -1)
                 {
                     addValues.add(i);
 
@@ -303,7 +303,7 @@ public class Hand {
             return addValues.get(0);
         }
 
-        return 0;
+        return -1;
 
     }
 
@@ -313,17 +313,16 @@ public class Hand {
         for(int i = 0; i < cardValues.size(); i++){
 
             if(cardValues.get(i) == 4){
-                addValues.get(i);
+                addValues.add(i);
             }
 
         }
 
         if(!addValues.isEmpty()) {
-            Collections.sort(addValues, Collections.reverseOrder());
             return addValues.get(0);
         }
 
-        return 0;
+        return -1;
 
     }
 
