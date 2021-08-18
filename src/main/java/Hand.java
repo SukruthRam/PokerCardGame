@@ -357,9 +357,10 @@ public class Hand {
             {
                 if (visited[valuesList.get(i) - min] != false)
                     return false;
-                
+
                 visited[valuesList.get(i) - min] = true;
             }
+
             return true;
         }
         return false;

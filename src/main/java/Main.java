@@ -5,17 +5,13 @@ import java.util.HashMap;
 public class Main {
     public static void main(String args[]){
 
-       // String[] input = args[0].split(" ");
-
-
-
         String player1 = args[0];
         String player2 = args[1];
         String player3 = args[2];
 
-        System.out.println(player1);
-        System.out.println(player2);
-        System.out.println(player3);
+        System.out.println("PLayer 1 value: "+player1);
+        System.out.println("PLayer 2 value: "+player2);
+        System.out.println("PLayer 3 value: "+player3);
 
 
         HashMap<String, String> suitValues = new HashMap<>();
@@ -48,6 +44,9 @@ public class Main {
 
     }
 
+    /*
+    Initialization of the Suit Value Hash Map
+     */
     private static void initializeSuitValues(HashMap<String, String> suitValues) {
         suitValues.put("C", "Clubs");
         suitValues.put("D", "Diamonds");
@@ -55,6 +54,9 @@ public class Main {
         suitValues.put("S", "Spades");
     }
 
+    /*
+    Initialization of the Suit Value Hash Map
+     */
     private static void initializeCardValues(HashMap<String, String> cardNumber) {
 
         cardNumber.put("0", "Twos");
@@ -72,6 +74,9 @@ public class Main {
         cardNumber.put("12", "Ace");
     }
 
+    /*
+    Compute the ranking for each player hand and set the string value for each player hand
+     */
     private static void computeRanking(Hand playerHand,
                                        ArrayList<String> playerRank,
                                        HashMap<String, String> cardValues,
@@ -137,6 +142,10 @@ public class Main {
 
     }
 
+    /*
+    Compare the ranking of all three players and print the results
+    Based on value of each player ranking the results are printed.
+     */
     private static void compareRanking(Hand player1Hand,
                                        Hand player2Hand, Hand player3Hand, String player1, String player2, String player3) {
 
@@ -171,7 +180,7 @@ public class Main {
                 isTie = printResults(rankPlayer1, rankPlayer2, groupResult, 2, rankPlayer3);
                 if(isTie)
                 {
-                    System.out.println("Pot is shared between Player 1 and Player 2");
+                    System.out.println("For Second and Third place Pot is shared between Player 1 and Player 2");
                     System.out.println(groupResult.get(rankPlayer3.getName()).split(" ")[0]+" "+
                             groupResult.get(rankPlayer3.getName()).split(" ")[1]+" wins");
                 }
@@ -196,7 +205,7 @@ public class Main {
                 isTie = printResults(rankPlayer1, rankPlayer3, groupResult, 2, rankPlayer2);
                 if(isTie)
                 {
-                    System.out.println("Pot is shared between Player 1 and Player 3");
+                    System.out.println("For Second and Third place Pot is shared between Player 1 and Player 3");
                     System.out.println(groupResult.get(rankPlayer2.getName()).split(" ")[0]+" "+
                             groupResult.get(rankPlayer2.getName()).split(" ")[1]+" wins");
                 }
@@ -221,7 +230,7 @@ public class Main {
                 isTie = printResults(rankPlayer2, rankPlayer3, groupResult, 2, rankPlayer1);
                 if(isTie)
                 {
-                    System.out.println("Pot is shared between Player 2 and Player 3");
+                    System.out.println("For Second and Third place Pot is shared between Player 2 and Player 3");
                     System.out.println(groupResult.get(rankPlayer1.getName()).split(" ")[0]+" "+
                             groupResult.get(rankPlayer1.getName()).split(" ")[1]+" wins");
                 }
@@ -244,6 +253,7 @@ public class Main {
         }
 
     }
+
 
     private static void createMap(Rank rankPlayer1, Rank rankPlayer2, Rank rankPlayer3,
                                   HashMap<String, String> groupResult, HashMap<Integer, String> resultValues,
@@ -334,7 +344,7 @@ public class Main {
                     istie = printResults(rankPlayer1, rankPlayer2, resultValues, 2, rankPlayer3);
                     if(istie)
                     {
-                        System.out.println("Pot is shared between Player 1 and Player 2");
+                        System.out.println("For Second and Third place Pot is shared between Player 1 and Player 2");
                         System.out.println(resultValues.get(rankPlayer3.getName()).split(" ")[0]+" "+
                                 resultValues.get(rankPlayer3.getRank()).split(" ")[1]+" wins");
                     }
@@ -359,7 +369,7 @@ public class Main {
                     istie = printResults(rankPlayer1, rankPlayer3, resultValues, 2, rankPlayer2);
                     if(istie)
                     {
-                        System.out.println("Pot is shared between Player 1 and Player 3");
+                        System.out.println("For Second and Third place Pot is shared between Player 1 and Player 3");
                         System.out.println(resultValues.get(rankPlayer2.getName()).split(" ")[0]+" "+
                                 resultValues.get(rankPlayer2.getName()).split(" ")[1]+" wins");
                     }
@@ -384,7 +394,7 @@ public class Main {
                     istie = printResults(rankPlayer2, rankPlayer3, resultValues, 2, rankPlayer1);
                     if(istie)
                     {
-                        System.out.println("Pot is shared between Player 2 and Player 3");
+                        System.out.println("For Second and Third place Pot is shared between Player 2 and Player 3");
                         System.out.println(resultValues.get(rankPlayer1.getName()).split(" ")[0]+" "+
                                 resultValues.get(rankPlayer1.getName()).split(" ")[1]+" wins");
                     }
