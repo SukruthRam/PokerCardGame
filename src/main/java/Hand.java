@@ -351,22 +351,15 @@ public class Hand {
         int n = valuesList.size();
         if (max - min + 1 == n)
         {
-            /* Create a temp array to hold visited flag of all elements.
-               Note that, calloc is used here so that all values are initialized
-               as false */
             boolean visited[] = new boolean[n];
             int i;
             for (i = 0; i < n; i++)
             {
-                /* If we see an element again, then return false */
                 if (visited[valuesList.get(i) - min] != false)
                     return false;
-
-                /* If visited first time, then mark the element as visited */
+                
                 visited[valuesList.get(i) - min] = true;
             }
-
-            /* If all elements occur once, then return true */
             return true;
         }
         return false;
